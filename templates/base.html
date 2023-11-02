@@ -1,0 +1,30 @@
+{% load compress %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% load static %}
+    {% compress css %}
+    <link type="text/x-scss" href="{% static 'scss/bootstrap.scss' %}" rel="stylesheet" media="screen" />
+    {% endcompress %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" crossorigin="anonymous" />
+    <title>
+      {% block title %}
+        Título predeterminado
+      {% endblock %}
+    </title>
+  </head>
+  <body class="container-fluid d-flex
+  {% if request.path == '/users/login/' %}
+    justify-content-center
+  {% else %}
+    justify-content-between
+  {% endif %}
+  align-items-center flex-column min-vh-100 p-0">
+    {% block layout %}
+    {% endblock %}
+  </body>
+</html>
