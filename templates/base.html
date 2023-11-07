@@ -17,13 +17,7 @@
       {% endblock %}
     </title>
   </head>
-  <body class="container-fluid d-flex
-  {% if request.path == '/users/login/' %}
-    justify-content-center
-  {% else %}
-    justify-content-between
-  {% endif %}
-  align-items-center flex-column min-vh-100 p-0">
+  <body>
     {% block layout %}
     {% endblock %}
   </body>
