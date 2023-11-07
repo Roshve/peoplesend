@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block layout %}
+  <div class="container-fluid d-flex justify-content-between  align-items-center flex-column min-vh-100 p-0">
+    {% include 'layout/header.html' %}
+    {% block content %}
+  
+    {% endblock %}
+    {% include 'layout/footer.html' %}
+  </div>
+{% endblock %}
