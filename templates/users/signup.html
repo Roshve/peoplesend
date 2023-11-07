@@ -1,0 +1,30 @@
+{% extends 'layout/empty.html' %}
+{% load static %}
+{% block title %}
+  People Send | Registro
+{% endblock %}
+
+{% block content %}
+  <main class="container d-flex justify-content-center">
+    <form action="{% url 'users:signup' %}" method="POST" class="row justify-content-center gap-2 needs-validation border rounded-2 p-4 bg-white" style="width: 400px;">
+      <div class="d-flex justify-content-center">
+        <img src="{% static 'img/People Send-logos_transparent.png' %}" width="100" height="100" alt="People Send" />
+      </div>
+      {% csrf_token %}
+
+      {% for field in form %}
+        <div class="w-100">
+          <label class="form-label" for="{{ field.auto_id }}">{{ field.label }}</label> {{ field }}
+          {% for error in field.errors %}
+            <div class="invalid-feedback">{{ error|escape }}</div>
+          {% endfor %}
+        </div>
+        <div class="w-100 d-block"></div>
+      {% endfor %}
+
+      <div class="w-100">
+        <button class="btn btn-primary w-100 mt-3" type="submit">Submit form</button>
+      </div>
+    </form>
+  </main>
+{% endblock %}
