@@ -6,7 +6,7 @@ from django.views.generic import DetailView, FormView, UpdateView
 from django.contrib.auth.models import User
 from users.models import Profile
 
-from users.forms import SignupForm
+from users.forms import SignupForm, LoginForm
 
 
 # class UserDetailView(LoginRequiredMixin, DetailView):
@@ -50,6 +50,7 @@ class UpdateProfileView(LoginRequiredMixin, UpdateView):
 
 
 class LoginView(auth_views.LoginView):
+    form_class = LoginForm
     template_name = 'users/login.html'
 
 
